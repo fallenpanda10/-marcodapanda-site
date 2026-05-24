@@ -1,3 +1,5 @@
+const { DateTime } = require("luxon");
+
 module.exports = function(eleventyConfig) {
   // Passthroughs
   eleventyConfig.addPassthroughCopy("src/assets");
@@ -12,23 +14,28 @@ module.exports = function(eleventyConfig) {
   // Global data
   eleventyConfig.addGlobalData("year", new Date().getFullYear());
 
-  // Collections
- eleventyConfig.addCollection("posts", function(collectionApi) {
-  const posts = collectionApi.getFilteredByGlob("src/posts/*.md");
-
-  // For each post, compute related posts (by shared tags) and attach to post.data.related
-  posts.forEach(post => {
-    const postTags = post.data && post.data.tags ? post.data.tags : [];
-    const related = posts
-      .filter(p => p.url !== post.url && p.data && p.data.tags && p.data.tags.some(t => postTags.includes(t)))
-      .slice(0, 3);
-    post.data.related = related;
+  // Date filter (uses luxon)
+  eleventyConfig.addFilter("date", (dateObj, format = "yyyy-LL-dd") => {
+    if (!dateObj) return "";
+    return DateTime.fromJSDate(dateObj instanceof Date ? dateObj : new Date(dateObj)).toFormat(format);
   });
 
-  return posts;
-});
+  // Posts collection with related posts attached
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    const posts = collectionApi.getFilteredByGlob("src/posts/*.md");
 
+    posts.forEach(post => {
+      const postTags = post.data && post.data.tags ? post.data.tags : [];
+      const related = posts
+        .filter(p => p.url !== post.url && p.data && p.data.tags && p.data.tags.some(t => postTags.includes(t)))
+        .slice(0, 3);
+      post.data.related = related;
+    });
 
+    return posts;
+  });
+
+  // Flows collection
   eleventyConfig.addCollection("flows", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/flows/*.md");
   });
@@ -75,10 +82,3 @@ module.exports = function(eleventyConfig) {
     htmlTemplateEngine: "njk"
   };
 };
-
-const { DateTime } = require("luxon");
-
-eleventyConfig.addFilter("date", (dateObj, format = "yyyy-LL-dd") => {
-  if (!dateObj) return "";
-  return DateTime.fromJSDate(dateObj instanceof Date ? dateObj : new Date(dateObj)).toFormat(format);
-});
