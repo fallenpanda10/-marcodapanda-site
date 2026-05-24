@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>About — MarcoDaPanda</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="About Marco — small-scale maker of calm spaces, writing about curiosity, clarity, and thoughtful design.">
+  <link rel="canonical" href="https://marcodapanda.com/about.html">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="src/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    :root{--bg:#f7f7f8;--text:#111}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .site-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+    .hero-title{font-size:2rem;margin-bottom:.5rem}
+  </style>
+
+  <link rel="preload" href="src/css/styles.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="src/css/styles.css"></noscript>
+  <link rel="preload" href="src/css/components.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="src/css/components.css"></noscript>
+
+  <style>
+    @font-face{font-family:'InterVar';src:url('src/fonts/Inter-Variable.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+  </style>
+
+  <script>
+    (function () {
+      try {
+        var heroImg = document.querySelector('.hero-side img, .hero img, .hero .responsive-img');
+        if (!heroImg) return;
+        var src = heroImg.getAttribute('src') || heroImg.currentSrc;
+        if (!src) return;
+        var link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        var srcset = heroImg.getAttribute('srcset');
+        var sizes = heroImg.getAttribute('sizes') || '(max-width:880px) 100vw, 360px';
+        if (srcset) {
+          link.setAttribute('imagesrcset', srcset);
+          link.setAttribute('imagesizes', sizes);
+        }
+        document.head.appendChild(link);
+      } catch (e) { /* silent fallback */ }
+    })();
+  </script>
+</head>
+<body class="about-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header glass" role="banner">
+    <a class="brand" href="index.html"><span class="logo-dot" aria-hidden="true"></span> MarcoDaPanda</a>
+
+    <nav class="site-nav" id="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="tech-help.html">Tech Help</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html" aria-current="page">About</a>
+    </nav>
+
+    <button id="nav-toggle" class="nav-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open menu">
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+    </button>
+
+    <nav id="mobile-nav" class="mobile-nav" role="navigation" aria-label="Mobile main" data-open="false" aria-hidden="true">
+      <a href="index.html">Home</a>
+      <a href="tech-help.html">Tech Help</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html" aria-current="page">About</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="container" role="main">
+    <section class="page-hero glass-strong" aria-labelledby="about-hero">
+      <h1 id="about-hero" class="hero-title">I’m Marco — a small‑scale maker of calm spaces</h1>
+      <p class="lead">I build a calm, intentional corner of the internet where curiosity and gentle tech meet. Welcome — take your time.</p>
+    </section>
+
+    <section class="about-me card">
+      <h2>About Me</h2>
+      <p>I move through the world by noticing things — the quiet shifts in a day, the small moments most people rush past, the way light softens a room or how a conversation stays with you long after it ends. I’ve always been drawn to the in‑between spaces: the pauses, the transitions, the subtle details that say more than they seem.</p>
+      <p>Professionally, I value clarity, structure, and design that feels intentional. Personally, I’m still navigating my own inner world, doing my best to stay grounded and present. Those two sides meet here, shaping the way I build, write, and share.</p>
+    </section>
+
+    <section class="what-i-care card">
+      <h2>What I care about</h2>
+      <p>I care about clarity, thoughtful design, and the small details that make a space feel grounded. I care about creating environments — digital or real — where people can slow down, feel understood, and move at their own pace.</p>
+    </section>
+
+    <section class="contact card">
+      <h2>Contact</h2>
+      <p>If you want to reach me about tech help, collaborations, or to say hi, email: <strong>your-email@example.com</strong>. I typically respond within 24–48 hours.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer container glass" role="contentinfo">
+    <div class="footer-left"><small>© <span id="year"></span> MarcoDaPanda</small></div>
+  </footer>
+
+  <script src="src/js/main.js" defer></script>
+</body>
+</html>

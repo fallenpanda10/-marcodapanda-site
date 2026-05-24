@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ title | default("MarcoDaPanda") }}</title>
+  <meta name="description" content="{{ description | default('A cozy corner for curiosity, calm tech, and grounding flows.') }}">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="/js/main.js"></script>
+</head>
+<body class="theme">
+  {% include "components/header.njk" %}
+  <main id="main-content">
+    {{ content | safe }}
+  </main>
+  {% include "components/footer.njk" %}
+</body>
+</html>

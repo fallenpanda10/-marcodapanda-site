@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MarcoDaPanda — Home</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Calm tech help, gentle essays, and small grounding practices from Marco.">
+  <link rel="canonical" href="https://marcodapanda.com/">
+
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://your-cdn.example.com" crossorigin>
+
+  <!-- Preload primary font -->
+  <link rel="preload" href="src/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Minimal critical CSS for header and hero -->
+  <style>
+    :root{--bg:#f7f7f8;--text:#111;--matcha:#6fbf8f}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+    .site-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+    .brand{font-weight:700;text-decoration:none;color:var(--text)}
+    .hero{margin-top:1.5rem;display:grid;grid-template-columns:1fr 360px;gap:1.5rem;align-items:start}
+    .hero-title{font-size:2.25rem;margin:0 0 .5rem}
+    .responsive-img{width:100%;height:auto;display:block;border-radius:12px}
+    .skip-link{position:absolute;left:-999px}
+    .skip-link:focus{position:fixed;left:1rem;top:1rem;padding:.6rem .9rem;background:#fff;color:var(--text);border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+  </style>
+
+  <!-- Preload main stylesheets non-blocking with noscript fallback -->
+  <link rel="preload" href="src/css/styles.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="src/css/styles.css"></noscript>
+  <link rel="preload" href="src/css/components.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="src/css/components.css"></noscript>
+
+  <!-- Font-face fallback -->
+  <style>
+    @font-face{font-family:'InterVar';src:url('src/fonts/Inter-Variable.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+  </style>
+
+  <!-- Dynamic LCP image preload -->
+  <script>
+    (function () {
+      try {
+        var heroImg = document.querySelector('.hero-side img, .hero img, .hero .responsive-img');
+        if (!heroImg) return;
+        var src = heroImg.getAttribute('src') || heroImg.currentSrc;
+        if (!src) return;
+        var link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        var srcset = heroImg.getAttribute('srcset');
+        var sizes = heroImg.getAttribute('sizes') || '(max-width:880px) 100vw, 360px';
+        if (srcset) {
+          link.setAttribute('imagesrcset', srcset);
+          link.setAttribute('imagesizes', sizes);
+        }
+        document.head.appendChild(link);
+      } catch (e) { /* silent fallback */ }
+    })();
+  </script>
+</head>
+<body class="home-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header glass" role="banner">
+    <a class="brand" href="index.html"><span class="logo-dot" aria-hidden="true"></span> MarcoDaPanda</a>
+
+    <nav class="site-nav" id="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="tech-help.html">Tech Help</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <button id="nav-toggle" class="nav-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open menu">
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+    </button>
+
+    <nav id="mobile-nav" class="mobile-nav" role="navigation" aria-label="Mobile main" data-open="false" aria-hidden="true">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="tech-help.html">Tech Help</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="site-main container" role="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner glass-strong" role="region" aria-label="Intro">
+        <div class="hero-content">
+          <h1 id="hero-title" class="hero-title">Welcome to my cozy corner of the internet</h1>
+          <p class="hero-sub lead">Tech help, wellness flows, curiosity, and stories — all in one calm, cozy home. Feel free to wander — there's no rush here.</p>
+          <p>I’m Marco — someone who loves curiosity, calm tech, and creating small grounding moments. This space is where I share what I learn, what I notice, and what helps me move through the world with a little more ease.</p>
+
+          <div class="hero-ctas" role="group" aria-label="Primary actions">
+            <a class="btn btn-primary" href="tech-help.html">Get calm tech help</a>
+            <a class="btn btn-ghost" href="blog.html">Browse gentle reads</a>
+          </div>
+        </div>
+
+        <aside class="hero-side" aria-hidden="false">
+          <!-- Responsive picture markup -->
+          <picture>
+            <source type="image/avif"
+                    srcset="assets/images/matcha-panda-480.avif 480w, assets/images/matcha-panda-800.avif 800w, assets/images/matcha-panda-1200.avif 1200w"
+                    sizes="(max-width:880px) 100vw, 360px">
+            <source type="image/webp"
+                    srcset="assets/images/matcha-panda-480.webp 480w, assets/images/matcha-panda-800.webp 800w, assets/images/matcha-panda-1200.webp 1200w"
+                    sizes="(max-width:880px) 100vw, 360px">
+            <img src="assets/images/matcha-panda-800.jpg"
+                 srcset="assets/images/matcha-panda-480.jpg 480w, assets/images/matcha-panda-800.jpg 800w, assets/images/matcha-panda-1200.jpg 1200w"
+                 sizes="(max-width:880px) 100vw, 360px"
+                 alt="Panda plush beside a bowl of frothy matcha and bamboo whisk"
+                 width="800" height="533"
+                 loading="lazy"
+                 class="responsive-img">
+          </picture>
+          <div class="img-caption">Matcha, calm, and small moments</div>
+        </aside>
+      </div>
+
+      <aside class="hero-pillars" aria-label="What you'll find here">
+        <h2 class="pillars-title heading-underline">What you’ll find here</h2>
+        <ul class="pillars-list list-grid">
+          <li class="card pillar-card glass" style="color:var(--matcha);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img"><path d="M21 3s-6 2-10 6-6 10-6 10 6-2 10-6 6-10 6-10z" fill="currentColor"/></svg>
+            <div><strong>Tech Help</strong><p class="muted">Calm, written support for everyday tech challenges.</p></div>
+          </li>
+
+          <li class="card pillar-card glass" style="color:var(--cafe);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img"><path d="M3 7h14v6a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7z" fill="currentColor"/><path d="M20 8v3a3 3 0 0 1-3 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Flows Wellness</strong><p class="muted">Gentle routines and grounding practices.</p></div>
+          </li>
+
+          <li class="card pillar-card glass" style="color:var(--matcha);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img"><path d="M12 2l1.8 4.6L18 8l-4.2 1.4L12 14l-1.8-4.6L6 8l4.2-1.4L12 2z" fill="currentColor"/></svg>
+            <div><strong>Curiosity Lab</strong><p class="muted">Deep dives into ideas that spark my interest.</p></div>
+          </li>
+
+          <li class="card pillar-card glass" style="color:var(--matcha);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img"><path d="M3 5.5A2.5 2.5 0 0 1 5.5 3H19v14H5.5A2.5 2.5 0 0 1 3 14.5V5.5z" fill="currentColor"/><path d="M19 3v14" stroke="rgba(0,0,0,0.08)" stroke-width="1" stroke-linecap="round"/></svg>
+            <div><strong>Stories</strong><p class="muted">Personal reflections and life notes.</p></div>
+          </li>
+
+          <li class="card pillar-card glass" style="color:var(--matcha);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img"><path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" fill="currentColor"/><path d="M4 20a6 6 0 0 1 8-5.7M20 20a6 6 0 0 0-8-5.7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><strong>Community</strong><p class="muted">A cozy space that will grow over time.</p></div>
+          </li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="featured-post">
+      <h2>Featured post</h2>
+      <article class="card post-card">
+        <h3><a href="blog/post-001.html">A Quiet Note on Small Things</a></h3>
+        <time datetime="2026-05-01">May 1, 2026</time>
+        <p class="muted">Short reflections on noticing small moments and why they matter.</p>
+      </article>
+    </section>
+
+    <section class="mini-about card">
+      <h2>About Marco</h2>
+      <p>I write about curiosity, calm tech, and small grounding moments. I help people with gentle, written tech support and share ideas that help me move through the world with more ease.</p>
+      <a class="btn btn-ghost" href="about.html">Read more</a>
+    </section>
+  </main>
+
+  <footer class="site-footer container glass" role="contentinfo">
+    <div class="footer-left"><small>© <span id="year"></span> MarcoDaPanda</small></div>
+    <div class="footer-right"><a href="#" target="_blank" rel="noopener">Twitter</a><a href="#" target="_blank" rel="noopener" style="margin-left:.6rem;">GitHub</a></div>
+  </footer>
+
+  <script src="src/js/main.js" defer></script>
+  <script>
+    window.addEventListener('load', function () {
+      var s = document.createElement('script');
+      s.src = 'https://example-analytics.com/analytics.js';
+      s.async = true;
+      document.body.appendChild(s);
+    });
+  </script>
+</body>
+</html>
+
+
+

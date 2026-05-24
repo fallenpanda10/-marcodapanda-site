@@ -1,0 +1,15 @@
+[build]
+  publish = "src"
+
+# Redirect bare domain to www (optional — flip if you prefer non-www)
+# [[redirects]]
+#   from = "https://marcodapanda.com/*"
+#   to   = "https://www.marcodapanda.com/:splat"
+#   status = 301
+#   force  = true
+
+# Pretty URLs — serve /about instead of /about.html
+[[redirects]]
+  from   = "/*"
+  to     = "/:splat.html"
+  status = 200

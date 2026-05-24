@@ -1,0 +1,52 @@
+/* src/css/styles.css
+   Page-level layout and core component styles
+*/
+
+/* Reset and tokens (kept minimal here; tokens centralized in components.css) */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: var(--text); background: var(--bg); line-height: 1.5; min-height: 100vh; }
+
+/* Headings */
+h1 { font-size: 2rem; margin-bottom: .5rem; }
+h2 { font-size: 1.5rem; margin-bottom: .5rem; }
+h3 { font-size: 1.125rem; margin-bottom: .5rem; }
+
+/* Container */
+.container { max-width: 980px; margin: 0 auto; padding: 0 1rem; }
+
+/* Header and nav layout */
+.site-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; }
+.brand { font-weight: 700; text-decoration: none; color: var(--text); }
+
+/* Hero */
+.hero { margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 360px; gap: 1.5rem; align-items: start; }
+.hero-title { font-size: 2.25rem; margin-bottom: .5rem; }
+.hero-side img { width: 100%; height: auto; border-radius: 12px; display: block; }
+
+/* Pillars */
+.pillars-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; list-style: none; padding: 0; margin: 0; }
+
+/* Cards */
+.card { background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85)); padding: 1rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .5rem .9rem; border-radius: 10px; font-weight: 600; cursor: pointer; text-decoration: none; }
+.btn-primary { background: var(--matcha); color: #fff; border: none; }
+.btn-ghost { background: transparent; color: var(--btn-ghost); border: 1px solid rgba(0,0,0,0.06); }
+
+/* Forms */
+.contact-form label { display: block; margin-top: .6rem; font-weight: 600; color: var(--text); }
+.contact-form input, .contact-form textarea { width: 100%; padding: .6rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08); margin-top: .25rem; background: #fff; color: var(--text); }
+.contact-form textarea { min-height: 120px; resize: vertical; }
+
+/* Footer */
+.site-footer { margin-top: 2.5rem; padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1rem; color: var(--muted-2); }
+
+/* Responsive */
+@media (max-width: 1100px) { .hero { grid-template-columns: 1fr 320px; } .pillars-list { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 880px) { .site-nav { display: none; } .nav-toggle { display: inline-flex; } .hero { grid-template-columns: 1fr; } .hero-side { order: -1; } .pillars-list { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { h1 { font-size: 1.6rem; } .hero-title { font-size: 1.6rem; } .container { padding: 0 .75rem; } }
+

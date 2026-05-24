@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tech Help — MarcoDaPanda</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Calm, patient tech help from Marco — clear, step-by-step written guidance for everyday tech issues.">
+  <link rel="canonical" href="https://marcodapanda.com/tech-help.html">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="src/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    :root{--bg:#f7f7f8;--text:#111;--matcha:#6fbf8f}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .site-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+    .hero-title{font-size:2rem;margin-bottom:.5rem}
+  </style>
+
+  <link rel="preload" href="src/css/styles.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="src/css/styles.css"></noscript>
+  <link rel="preload" href="src/css/components.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="src/css/components.css"></noscript>
+
+  <style>
+    @font-face{font-family:'InterVar';src:url('src/fonts/Inter-Variable.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+  </style>
+
+  <script>
+    (function () {
+      try {
+        var heroImg = document.querySelector('.hero-side img, .hero img, .hero .responsive-img');
+        if (!heroImg) return;
+        var src = heroImg.getAttribute('src') || heroImg.currentSrc;
+        if (!src) return;
+        var link = document.createElement('link');
+        link.rel = 'preload';
+        link.as = 'image';
+        link.href = src;
+        var srcset = heroImg.getAttribute('srcset');
+        var sizes = heroImg.getAttribute('sizes') || '(max-width:880px) 100vw, 360px';
+        if (srcset) {
+          link.setAttribute('imagesrcset', srcset);
+          link.setAttribute('imagesizes', sizes);
+        }
+        document.head.appendChild(link);
+      } catch (e) { /* silent fallback */ }
+    })();
+  </script>
+</head>
+<body class="page tech-help-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header glass" role="banner">
+    <a class="brand" href="index.html"><span class="logo-dot" aria-hidden="true"></span> MarcoDaPanda</a>
+
+    <nav class="site-nav" id="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="tech-help.html" aria-current="page">Tech Help</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <button id="nav-toggle" class="nav-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Open menu">
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+    </button>
+
+    <nav id="mobile-nav" class="mobile-nav" role="navigation" aria-label="Mobile main" data-open="false" aria-hidden="true">
+      <a href="index.html">Home</a>
+      <a href="tech-help.html" aria-current="page">Tech Help</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="container" role="main">
+    <section class="page-hero glass-strong" aria-labelledby="tech-hero">
+      <h1 id="tech-hero" class="hero-title">Tech support that feels human</h1>
+      <p class="lead">Tech doesn’t have to be stressful. I’m here to help with calm, clear guidance.</p>
+      <p class="muted">Short, patient, step-by-step instructions you can follow at your own pace.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#how-it-works">How it works</a>
+        <a class="btn btn-ghost" href="#examples">Examples</a>
+      </div>
+    </section>
+
+    <section id="what-i-help-with" class="help-grid">
+      <h2>What I help with</h2>
+      <ul class="list-grid">
+        <li class="card"><h3>Device Troubleshooting</h3><p>When something stops working or feels confusing, I’ll walk you through it calmly and step-by-step.</p></li>
+        <li class="card"><h3>Digital Organization</h3><p>Decluttering files, apps, and settings so your tech feels lighter and easier to use.</p></li>
+        <li class="card"><h3>Browser and App Support</h3><p>Helping you set things up, fix issues, or understand how tools actually work.</p></li>
+        <li class="card"><h3>Account Recovery</h3><p>Guidance for secure recovery and improving account safety without unnecessary risk.</p></li>
+        <li class="card"><h3>Calm Explanations</h3><p>Breaking down confusing tech topics into clear, human language you can actually understand.</p></li>
+      </ul>
+    </section>
+
+    <section id="how-it-works" class="how-it-works card">
+      <h2>How my tech help works</h2>
+      <p>I provide clear, written messages you can follow at your own pace. No calls or screensharing — just calm, step-by-step guidance. Everything is explained in simple, human language, with patience and zero judgment.</p>
+
+      <h3>What you can expect</h3>
+      <ul class="expect-list">
+        <li>Patient, step-by-step instructions</li>
+        <li>Plain language and no tech jargon</li>
+        <li>Solutions you can follow at your own pace</li>
+      </ul>
+
+      <div class="pricing card">
+        <h3>Pricing and booking</h3>
+        <p class="muted">Pricing and booking details are coming soon. Base consult price: <strong>$30</strong>.</p>
+
+        <form name="tech-help" method="POST" data-netlify="true" class="contact-form" id="tech-help-form" novalidate>
+          <input type="hidden" name="form-name" value="tech-help" />
+
+          <label for="message">Brief summary of the issue</label>
+          <textarea id="message" name="message" required placeholder="Describe the problem in a few sentences" aria-describedby="message-help"></textarea>
+          <div id="message-help" class="form-help muted">A short summary helps me diagnose faster.</div>
+          <div id="message-error" class="error-text" role="alert" aria-live="assertive" hidden></div>
+
+          <label for="email">Your email</label>
+          <input id="email" type="email" name="email" required placeholder="you@example.com" aria-describedby="email-help" />
+          <div id="email-help" class="form-help muted">We’ll only use this to reply.</div>
+          <div id="email-error" class="error-text" role="alert" aria-live="assertive" hidden></div>
+
+          <label for="device">Optional: device or OS</label>
+          <input id="device" type="text" name="device" placeholder="e.g., iPad Air, Windows 11" />
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Request Help</button>
+            <button class="btn btn-ghost" type="button" aria-label="More about pricing">More about pricing</button>
+          </div>
+        </form>
+
+        <p class="muted small">Short summary + screenshots welcome. I’ll reply within 24–48 hours.</p>
+      </div>
+    </section>
+
+    <section id="examples" class="examples">
+      <h2>Examples</h2>
+
+      <div class="example-card card">
+        <h4>iPad Display Replacement</h4>
+        <p class="muted">Issue</p>
+        <p>A damaged touchscreen that wasn’t responding properly.</p>
+        <p class="muted">What I did</p>
+        <p>Diagnosed the issue, confirmed the display assembly needed replacement, and completed the repair with care.</p>
+        <p class="muted">Result</p>
+        <p>The iPad worked like new again and the client saved compared to store pricing.</p>
+      </div>
+
+      <div class="example-card card">
+        <h4>Account Recovery and Security</h4>
+        <p class="muted">Issue</p>
+        <p>User locked out of device and worried about data loss.</p>
+        <p class="muted">What I did</p>
+        <p>Guided secure recovery, verified identity, and restored access without wiping the device.</p>
+        <p class="muted">Result</p>
+        <p>Access restored with data intact and improved recovery settings.</p>
+      </div>
+
+      <div class="more-note muted">More examples available on request. I can tailor help to your needs.</div>
+    </section>
+  </main>
+
+  <footer class="site-footer container glass" role="contentinfo">
+    <div class="footer-left"><small>© <span id="year"></span> MarcoDaPanda</small></div>
+  </footer>
+
+  <script src="src/js/main.js" defer></script>
+</body>
+</html>
